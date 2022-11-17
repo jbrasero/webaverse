@@ -1,0 +1,24 @@
+{
+  "name": "snowball",
+  "description": "snowball",
+  "start_url": "index.js",
+  "components": [
+    {
+      "key": "aim",
+      "value": {
+        "ikHand": "left"
+      }
+    },
+    {
+      "key": "use",
+      "value": {
+        "animationEnvelope": [
+          "bowDraw",
+          "bowIdle",
+          "bowLoose"
+        ],
+        "ik": "bow"
+      }
+    }
+  ]
+}

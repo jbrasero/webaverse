@@ -1,0 +1,398 @@
+{
+  "objects": [
+        {
+      "type": "application/spawnpoint",
+      "content": {
+        "position": [21.9, 1.42, 4.17 ],
+        "quaternion": [0, 0.0,0, 0.0]
+      }
+    },
+
+
+   {
+      "type": "application/light",
+      "content": {
+        "lightType": "ambient",
+        "args": [[255, 255, 255], 0.5]
+      }
+    },
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "directional",
+        "args": [[255, 255, 255], 5],
+        "position": [1, 2, 3],
+        "shadow": [150, 5120, 0.1, 10000, -0.0001]
+      }
+    },
+      {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "start_url": "https://webaverse.github.io/twilight-sky/index.js"
+      },
+
+
+
+
+      {
+        "position": [
+          14.8,
+          1.8,
+          -5.6
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "physics": true,
+        "start_url": "/scenes/assets/human_brain.glb",
+        "dynamic": false
+      },
+      {
+        "position": [
+          14.80,
+          0.90,
+          -7.38
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          0.025,
+          0.025,
+          0.025
+        ],
+        "physics": true,
+        "start_url": "/scenes/assets/digestive_system.glb",
+        "dynamic": false
+      },
+      {
+        "position": [
+          14.80,
+          2.80,
+          -10.9
+        ],
+        "quaternion": [
+          0,
+          0.70710678,
+          0,
+          0.70710678
+        ],
+        "scale": [
+          0.030,
+          0.030,
+          0.030
+        ],
+        "physics": true,
+        "start_url": "/scenes/assets/male_full_body_ecorche.glb",
+        "dynamic": false
+      },
+      {
+        "position": [
+          14.7,
+          2.90,
+          -2.9
+        ],
+        "quaternion": [
+          0,
+          0.70710678,
+          0,
+          0.70710678
+        ],
+        "scale": [
+          0.75,
+          0.75,
+          0.75
+        ],
+        "physics": true,
+        "start_url": "/scenes/assets/upper_body_anatomy.glb",
+        "dynamic": false
+      },
+      {
+        "type": "application/light",
+        "content": {
+          "lightType": "point",
+          "position": [14.0, 2.9, -2.9],
+          "args": [[255, 255, 255], 10, 10]
+        }
+      },
+
+       {
+          "position": [
+            29.23,
+            1.9,
+            -15.67
+          ],
+          "quaternion": [
+            0.70710678,
+            0,
+            0.70710678,
+            0
+          ],
+          "scale": [
+            0.12,
+            0.12,
+            0.12
+          ],
+          "physics": true,
+          "start_url": "/scenes/assets/dna_animation.glb",
+          "dynamic": false
+        },
+        {
+          "position": [
+            29,
+            0.20,
+            0.49
+          ],
+          "quaternion": [
+            0,
+            0.70710678,
+            0,
+            -1
+          ],
+          "scale": [
+            0.19,
+            0.19,
+            0.19
+          ],
+          "physics": true,
+          "start_url": "/scenes/assets/x-ray_torso.glb",
+          "dynamic": false
+        },
+        {
+          "position": [
+            20.65,
+            0,
+            -13.78
+          ],
+          "quaternion": [
+            0,
+            -0.70710678,
+            0,
+            1
+          ],
+          "scale": [
+            1.25,
+            1.25,
+            1.25
+          ],
+          "physics": true,
+          "start_url": "/scenes/assets/futuristic_chair.glb",
+          "dynamic": false
+        },
+
+        {
+          "position": [
+            21.23,
+            1,
+            -10.67
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1.9,
+            1.9,
+            1.9
+          ],
+          "physics": true,
+          "start_url": "/scenes/assets/heart/heart.glb",
+          "dynamic": true
+        },
+
+
+
+
+        {
+          "type": "application/text",
+          "content": {
+            "text": "Initial Diagnose: Restrictive cardiomyopathy",
+            "font": "./fonts/Futura LT Condensed Medium.ttf",
+            "fontSize": 1,
+            "anchorX": "left",
+            "anchorY": "middle",
+            "color": [89, 145, 142]
+          },
+          "position": [
+            21.0,
+            1.42,
+            -10.67
+          ],  "scale": [
+              0.1,
+              0.1,
+              0.1
+            ]
+        },
+
+        {
+          "position": [
+            21.23,
+            0.8,
+            -10.67
+          ],
+          "quaternion": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1.75,
+            1.75,
+            1.75
+          ],
+          "physics": true,
+          "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/xvKQl9W_JaU6gsUsucqM3icKhnF7w92EsX4bmyk3UGFp5lNSAKE-4kLbxEIFq3kK/n/wedoinfra/b/3dobjects/o/healthcare/doctor_desk.glb",
+          "dynamic": false
+        },
+
+
+        {
+          "position": [
+            14.8,
+            1.6,
+            -9.2
+          ],
+          "quaternion": [
+            0,
+            0.70710678,
+            0,
+            0.70710678
+          ],
+          "scale": [
+            1.75,
+            1.75,
+            1.75
+          ],
+          "physics": true,
+          "start_url": "/scenes/assets/lungs.glb",
+          "dynamic": false
+        },
+
+
+        {
+        "position": [
+        21.23,
+        0.0,
+        -8.67
+        ],
+        "quaternion": [
+        0,
+        0.70710678,
+        0,
+        0.70710678
+        ],
+        "scale": [
+          0.01,
+          0.01,
+          0.01
+        ],
+          "physics": true,
+          "start_url": "/scenes/assets/piano-main/",
+          "dynamic": false
+        },
+
+
+
+        {
+          "position": [
+          20.80,
+          0,
+          -11.53
+          ],
+          "quaternion": [
+          0,
+          1,
+          0,
+          0
+          ],
+          "scale": [
+            1.3,
+            1.3,
+            1.3
+          ],
+          "type": "application/npc",
+          "content": {
+            "name": "Doctor Webster",
+            "avatarUrl": "/scenes/assets/wedo-doctor.vrm",
+            "voice": "Maud Pie",
+            "bio": "Specialist Doctor.....",
+            "wear": [
+            ]
+          }
+        },
+
+
+    {
+      "position": [
+        23,
+        0,
+        5
+      ],
+      "quaternion": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/combined-pod-main/index.js",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        21.2,
+        6.95,
+        -20.0
+      ],
+      "scale": [
+        0.91,
+        0.91,
+        0.91
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/wedo/wedo-green.glb",
+      "dynamic": false
+    },
+
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "point",
+        "position": [21.2, 5.95, -15],
+        "args": [[255, 255, 255], 10, 10]
+      }
+    },
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "point",
+        "position": [27.2, 1.85, -7],
+        "args": [[255, 255, 255], 10, 10]
+      }
+    }
+
+  ]
+}

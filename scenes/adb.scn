@@ -1,0 +1,379 @@
+{
+  "objects": [
+  {
+      "type": "application/spawnpoint",
+      "content": {
+        "position": [0.55,1.43,10.99]
+      }},
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "ambient",
+        "args": [[255, 255, 255], 0.1]
+      }
+    },
+
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "directional",
+        "args": [[255, 255, 255], 5],
+        "position": [1, 2, 3],
+        "shadow": [150, 5120, 0.1, 10000, -0.0001]
+      }
+    },
+
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "point",
+        "position": [-0.24, 1, -1.35],
+        "args": [[255, 255, 255], 10, 10]
+      }
+    },
+
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "point",
+        "position": [0, 5, 15],
+        "args": [[255, 255, 255], 2.5, 50]
+      }
+    },
+
+
+
+
+    {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/ADB/adams_finalscene.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        0,
+        0,
+        12
+      ],
+      "quaternion": [
+      0,
+      1,
+      0,
+      0
+      ],
+      "scale": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/ADB/adams_finalscene.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        -6.57,
+        0,
+        17.48
+      ],
+      "quaternion": [
+      0,
+      1,
+      0,
+      0
+      ],
+      "scale": [
+        0.61,
+        0.61,
+        0.61
+      ],
+      "start_url": "/scenes/assets/ADB/the_house_of_the_dead.glb"
+    },
+    {
+      "position": [
+        -3.56,
+        -0.2,
+        5.91
+      ],
+      "scale": [
+        0.001,
+        0.001,
+        0.001
+      ],
+      "start_url": "/scenes/assets/ADB/gumball_machine.glb"
+    },
+
+
+    {
+      "position": [
+        20,
+        -21,
+        470
+      ],
+      "scale": [
+        2.01,
+        2.01,
+        2.01
+      ],
+      "start_url": "/scenes/assets/ADB/ceiling.glb"
+    },
+
+    {
+      "position": [
+      7,
+      1,
+      10.53
+      ],
+      "quaternion": [
+      0,
+      0,
+      0
+      ],
+      "scale": [
+        1.3,
+        1.3,
+        1.3
+      ],
+      "type": "application/npc",
+      "content": {
+        "name": "Doctor Webster",
+        "avatarUrl": "/../../public/avatars/citrine.vrm",
+        "voice": "Maud Pie",
+        "bio": "Specialist Doctor.....",
+        "wear": [
+        ]
+      }
+    },
+
+    {
+      "position": [
+        6,
+        0,
+        2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/ADB/jesus.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        6.99,
+        0,
+        5.94
+      ],
+      "scale": [
+        0.005,
+        0.005,
+        0.005
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/ADB/triggercube/index.js",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        8,
+        1,
+        5
+      ],
+      "scale": [
+        0.91,
+        0.91,
+        0.91
+      ],
+      "quaternion": [
+        0,
+        -0.70710678,
+        0,
+        0.70710678
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/ADB/number2/index.js",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        8,
+        0.9,
+        6.00
+      ],
+      "scale": [
+        0.91,
+        0.91,
+        0.91
+      ],
+      "quaternion": [
+        0,
+        -0.70710678,
+        0,
+        0.70710678
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/ADB/number4/index.js",
+      "dynamic": false
+    },
+    {
+      "position": [
+        8,
+        1,
+        7
+      ],
+      "scale": [
+        0.91,
+        0.91,
+        0.91
+      ],
+      "quaternion": [
+        0,
+        -0.70710678,
+        0,
+        0.70710678
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/ADB/number6/index.js",
+      "dynamic": false
+    },
+
+    {
+      "type": "application/text",
+      "content": {
+        "text": "Start",
+        "font": "./fonts/Futura LT Condensed Medium.ttf",
+        "fontSize": 1,
+        "anchorX": "left",
+        "anchorY": "middle",
+        "color": [89, 145, 142]
+      },
+      "position": [
+        7,
+        0.4,
+        5.80
+      ],
+      "quaternion": [
+        0,
+        -0.70710678,
+        0,
+        0.70710678
+      ],
+      "scale": [
+          0.2,
+          0.2,
+          0.2
+        ]
+    },
+    {
+      "position": [
+        0,
+        2,
+        6
+      ],
+      "scale": [
+        0.91,
+        0.91,
+        0.91
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/wedo/wedo-green.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        8.50,
+        2,
+        6
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "quaternion": [
+        0,
+        -0.70710678,
+        0,
+        0.70710678
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/wedo/oracle-logo.glb",
+      "dynamic": false
+    },
+
+
+
+        {
+          "type": "application/light",
+          "content": {
+            "lightType": "point",
+            "position": [8, 2, 6],
+            "args": [[255, 255, 255], 10, 10]
+          }
+        },
+
+        {
+          "type": "application/light",
+          "content": {
+            "lightType": "point",
+            "position": [-6, 2, 16],
+            "args": [[255, 255, 255], 10, 10]
+          }
+        },
+
+        {
+          "type": "application/light",
+          "content": {
+            "lightType": "point",
+            "position": [0, 4, 6],
+            "args": [[255, 255, 255], 10, 10]
+          }
+        },
+
+          {
+            "type": "application/light",
+            "content": {
+              "lightType": "point",
+              "position": [0.42, 2.3, 9.16],
+              "args": [[255, 255, 255], 10, 10]
+            }
+          },
+
+          {
+            "type": "application/light",
+            "content": {
+              "lightType": "point",
+              "position": [8, 2.3, -4.16],
+              "args": [[255, 255, 255], 10, 10]
+            }
+          },
+          {
+            "type": "application/light",
+            "content": {
+              "lightType": "point",
+              "position": [-8.72, 2.3, -4.86],
+              "args": [[255, 255, 255], 10, 10]
+            }
+          },
+          {
+            "type": "application/light",
+            "content": {
+              "lightType": "point",
+              "position": [8.76, 2.3, 16.85],
+              "args": [[255, 255, 255], 10, 10]
+            }
+          }
+
+  ]
+}

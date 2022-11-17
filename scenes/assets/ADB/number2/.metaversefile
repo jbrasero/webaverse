@@ -1,0 +1,15 @@
+{
+  "name": "number2",
+  "description": "number2",
+  "start_url": "index.js",
+  "components": [
+    {
+      "key": "sit",
+      "value": {
+        "subtype": "chair",
+        "mountType": "flying",
+        "sitOffset": [0, 0, 0]
+      }
+    }
+    ]
+}

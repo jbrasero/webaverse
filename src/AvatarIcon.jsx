@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext, useState } from 'react';
 import classnames from 'classnames';
-
+import { defaultPlayerName } from '../ai/lore/lore-model.js'; //ADDED BY JESUS
 import { AppContext } from './components/app';
 import {world} from '../world.js';
 import {
@@ -75,7 +75,7 @@ const CharacterIcon = () => {
               <div className={styles.meta}>
                   <div className={styles.text}>
                       <div className={styles.background} />
-                      <span className={styles.name}>Anon</span>
+                      <span className={styles.name}>{defaultPlayerName}</span>
                       <span className={styles.level}>Lv. {level}</span>
                   </div>
                   <div className={classnames(styles.stat, styles.hp)}>

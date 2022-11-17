@@ -1,0 +1,43 @@
+{
+  "objects": [
+  {
+      "type": "application/spawnpoint",
+      "content": {
+        "position": [-10,1.67,2]
+      }
+    },
+
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "ambient",
+        "args": [[255, 255, 255], 0.5]
+      }
+    },
+
+
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "point",
+        "position": [0, 5, 15],
+        "args": [[255, 255, 255], 2.5, 50]
+      }
+    },
+
+    {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [2,2,2],
+      "physics": true,
+      "start_url": "/scenes/assets/wedo/futuristic_room.glb",
+      "dynamic": false
+    }
+
+
+
+  ]
+}

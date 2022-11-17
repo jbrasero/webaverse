@@ -1,0 +1,722 @@
+{
+  "objects": [
+  {
+      "type": "application/spawnpoint",
+      "content": {
+        "position": [35,1.43,-1.72]
+      }
+  },
+  {
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "scale": [
+      6.3,
+      6.3,
+      6.3
+    ],
+    "start_url": "https://webaverse.github.io/floor/"
+  },
+
+    {
+      "position": [
+        -22,
+        0,
+        18.0
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "physics": true,
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/m6FCECQYvlIsAn4bLrVbwBIE6hA9lKExEmOwlZuAzzUoUtjmDzgchs_d9DAqdlFU/n/wedoinfra/b/3dobjects/o/adb/buildingv1.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -10.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/autonomous/index.js",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -15.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -20.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -25.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        25,
+        0,
+        -30.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -35.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -40.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -45.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -50.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -55.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -60.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -65.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -70.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        25,
+        0,
+        -75.0
+      ],
+      "scale": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/data_center_low-polyv2.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        58,
+        0,
+        -10.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        58,
+        0,
+        -15.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        58,
+        0,
+        -20.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        58,
+        0,
+        -25.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        58,
+        0,
+        -30.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        58,
+        0,
+        -35.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        58,
+        0,
+        -40.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        58,
+        0,
+        -45.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        58,
+        0,
+        -50.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        58,
+        0,
+        -55.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        58,
+        0,
+        -60.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        58,
+        0,
+        -65.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        58,
+        0,
+        -70.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+    {
+      "position": [
+        58,
+        0,
+        -75.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+
+    {
+      "position": [
+        58,
+        0,
+        -80.0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "physics": true,
+      "start_url": "/scenes/assets/adbv2/server.glb",
+      "dynamic": false
+    },
+    {
+      "type": "application/light",
+      "content": {
+        "lightType": "directional",
+        "args": [[255, 255, 255], 5],
+        "position": [1, 2, 3],
+        "shadow": [150, 5120, 0.1, 10000, -0.0001]
+      }
+    },
+    {
+        "type": "application/light",
+        "content": {
+          "lightType": "ambient",
+          "args": [[255, 255, 255], 1.5]
+        }
+      },
+
+      {
+        "type": "application/light",
+        "content": {
+          "lightType": "directional",
+          "args": [[255, 255, 255], 5],
+          "position": [28, 2, -91],
+          "shadow": [150, 5120, 0.1, 10000, -0.0001]
+        }
+      },
+
+
+        {
+          "type": "application/light",
+          "content": {
+            "lightType": "directional",
+            "args": [[255, 255, 255], 5],
+            "position": [60, 12, -82],
+            "shadow": [150, 5120, 0.1, 10000, -0.0001]
+          }
+        },
+
+
+        {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "start_url": "https://webaverse.github.io/atmospheric-sky/"
+        },
+
+
+            {
+              "position": [
+                57,
+                0.2,
+                -9
+              ],
+              "physics": true,
+              "start_url": "/scenes/assets/ADB/jesus.glb",
+              "dynamic": false
+            },
+            {
+              "position": [
+                6,
+                8,
+                -50
+              ],
+              "scale": [
+                2.91,
+                2.91,
+                2.91
+              ],
+              "quaternion": [
+                0,
+                0.70710678,
+                0,
+                0.70710678
+              ],
+              "physics": true,
+              "start_url": "/scenes/assets/wedo/wedo-green.glb",
+              "dynamic": false
+            },
+
+            {
+              "position": [
+                6,
+                8,
+                -21
+              ],
+              "scale": [
+                2.51,
+                2.51,
+                2.51
+              ],
+              "quaternion": [
+                0,
+                0.70710678,
+                0,
+                0.70710678
+              ],
+              "physics": true,
+              "start_url": "/scenes/assets/wedo/oracle-logo.glb",
+              "dynamic": false
+            },
+
+
+
+            {
+              "position": [
+                34,
+                8,
+                -99
+              ],
+              "scale": [
+                2.91,
+                2.91,
+                2.91
+              ],
+
+              "physics": true,
+              "start_url": "/scenes/assets/wedo/wedo-green.glb",
+              "dynamic": false
+            },
+
+            {
+              "position": [
+                52,
+                8,
+                -99
+              ],
+              "scale": [
+                2.51,
+                2.51,
+                2.51
+              ],
+
+              "physics": true,
+              "start_url": "/scenes/assets/wedo/oracle-logo.glb",
+              "dynamic": false
+            },
+
+
+            {
+              "position": [
+                68.5,
+                8,
+                -40
+              ],
+              "scale": [
+                2.91,
+                2.91,
+                2.91
+              ],
+              "quaternion": [
+                0,
+                -0.70710678,
+                0,
+                0.70710678
+              ],
+              "physics": true,
+              "start_url": "/scenes/assets/wedo/wedo-green.glb",
+              "dynamic": false
+            },
+
+            {
+              "position": [
+                68.5,
+                8,
+                -69
+              ],
+              "scale": [
+                2.51,
+                2.51,
+                2.51
+              ],
+              "quaternion": [
+                0,
+                -0.70710678,
+                0,
+                0.70710678
+              ],
+
+              "physics": true,
+              "start_url": "/scenes/assets/wedo/oracle-logo.glb",
+              "dynamic": false
+            },
+
+            {
+              "type": "application/rendersettings",
+              "content": {
+                "ssao": {
+                  "kernelRadius": 16,
+                  "minDistance": 0.005,
+                  "maxDistance": 0.1
+                },
+                "dof": {
+                  "focus": 3.0,
+                  "aperture": 0.00002,
+                  "maxblur": 0.005
+                },
+                "hdr": {
+                  "adaptive": true,
+                  "resolution": 256,
+                  "adaptionRate": 100,
+                  "maxLuminance": 10,
+                  "minLuminance": 0,
+                  "middleGrey": 3
+                },
+                "bloom": {
+                  "strength": 0.2,
+                  "radius": 0.5,
+                  "threshold": 0.8
+                }
+              }
+            },
+            {
+              "type": "application/text",
+              "content": {
+                "text": "Autonomous",
+                "font": "./fonts/FuturaLT-Book.ttf",
+                "fontSize": 0.4,
+                "anchorX": "center",
+                "anchorY": "middle",
+                "color": [255, 255, 255]
+              },
+              "position": [
+                26.7,
+                2.2,
+                -5.5
+              ]
+            },
+
+            {
+              "position": [
+                36,
+                0.4,
+                -31.0
+              ],
+              "physics": true,
+              "start_url": "/scenes/assets/adbv2/innovationRoom.glb",
+              "dynamic": false
+            }
+  ]
+}

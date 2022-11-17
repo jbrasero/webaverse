@@ -129,7 +129,7 @@ function makeId(length) {
     }
   });
   app.use(viteServer.middlewares);
-  
+
   await new Promise((accept, reject) => {
     httpServer.listen(port, SERVER_ADDR, () => {
       accept();
@@ -137,7 +137,7 @@ function makeId(length) {
     httpServer.on('error', reject);
   });
   console.log(`  > Local: http${isHttps ? 's' : ''}://${SERVER_NAME}:${port}/`);
-  
+
   const wsServer = (() => {
     if (isHttps) {
       return https.createServer(certs);
@@ -146,10 +146,10 @@ function makeId(length) {
     }
   })();
   const initialRoomState = (() => {
-    const s = fs.readFileSync('./scenes/gunroom.scn', 'utf8');
+    const s = fs.readFileSync('./scenes/health.scn', 'utf8');
     const j = JSON.parse(s);
     const {objects} = j;
-    
+
     const appsMapName = 'apps';
     const result = {
       [appsMapName]: [],
