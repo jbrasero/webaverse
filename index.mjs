@@ -8,7 +8,7 @@ import vite from 'vite';
 import wsrtc from 'wsrtc/wsrtc-server.mjs';
 
 const SERVER_ADDR = '0.0.0.0';
-const SERVER_NAME = 'local.webaverse.com';
+const SERVER_NAME = 'webaverse.wedoteam.io';
 
 Error.stackTraceLimit = 300;
 const cwd = process.cwd();
@@ -26,8 +26,8 @@ const _tryReadFile = p => {
   }
 };
 const certs = {
-  key: _tryReadFile('./certs/privkey.pem') || _tryReadFile('./certs-local/privkey.pem'),
-  cert: _tryReadFile('./certs/fullchain.pem') || _tryReadFile('./certs-local/fullchain.pem'),
+  key: _tryReadFile('/etc/ssl/certificate.key') || _tryReadFile('./certs-local/privkey.pem'),
+  cert: _tryReadFile('/etc/ssl/certificate.fullchain.crt') || _tryReadFile('./certs-local/fullchain.pem'),
 };
 
 function makeId(length) {
