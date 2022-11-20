@@ -5,8 +5,8 @@ const { useApp, useLoaders, useChatManager ,useFrame ,useScene, useLoreAIScene, 
 import {chatManager} from '../../../chat-manager.js';
 import {makeId, createRelativeUrl} from '../../../util.js';
 import {Text} from 'troika-three-text'
-import './chat/js/web-sdk22.4.js';
-import './chat/js/settings22.4.js';
+//import './chat/js/web-sdk22.4.js';
+//import './chat/js/settings22.4.js';
 
 
 
@@ -479,17 +479,15 @@ document.body.appendChild( button );*/
         doors2.colliderR = physics.addGeometry( doors2.right );
         physics.addGeometry( podMesh );
 
-        var fileref=document.createElement("link")
+    /*    var fileref=document.createElement("link")
         		fileref.setAttribute("rel", "stylesheet")
         		fileref.setAttribute("type", "text/css")
         		fileref.setAttribute("href", "./scenes/assets/combined-pod-main/chat/style.css");
         document.getElementsByTagName("head")[0].appendChild(fileref);
-      //  document.getElementsByTagName("body").innerHTML += '<body style="margin: 0px; overflow: hidden;">';
-
         var domoverlay = document.createElement( 'div' );
         domoverlay.id = "dom-overlay";
         domoverlay.innerHTML='<div id="dom-overlay-message"></div>';
-
+*/
 
 
     });
