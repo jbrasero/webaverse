@@ -62,9 +62,17 @@ const origin = globalThis.location.protocol + '//' + globalThis.location.hostnam
 
 let _inappPreviewHost = '';
 
+//case 'https://webaverse.wedoteam.io': {
+
 switch ( origin ) {
+    case 'https://local.webaverse.com': {
+    //    _inappPreviewHost = `https://webaverse.wedoteam.online:${globalThis.location.port}`;
+        _inappPreviewHost = `https://local.webaverse.online:${globalThis.location.port}`;
+        break;
+    }
     case 'https://webaverse.wedoteam.io': {
         _inappPreviewHost = `https://webaverse.wedoteam.online:${globalThis.location.port}`;
+    //    _inappPreviewHost = `https://local.webaverse.online:${globalThis.location.port}`;
         break;
     }
     case 'https://dev.webaverse.com': {

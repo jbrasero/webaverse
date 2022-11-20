@@ -60,7 +60,7 @@ export default () => {
   const app = useApp();
   const camera = useCamera();
   const player = app.getComponent('player');
-
+//alert("player "+JSON.stringify(player));
   let textGroup = null;
   const lastPlateToCamera = new THREE.Vector3();
   let instIndex = -1;
@@ -78,7 +78,9 @@ export default () => {
     const anchorY = 'top';
     const color = 0xffffff;
     const textMesh = await getTextMesh(
-      player.name,
+//      player.name,
+      //COMENT BY JESUS
+      "Player"
       font,
       fontSize,
       anchorX,

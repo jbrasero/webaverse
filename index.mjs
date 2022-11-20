@@ -8,12 +8,19 @@ import vite from 'vite';
 import wsrtc from 'wsrtc/wsrtc-server.mjs';
 
 const SERVER_ADDR = '0.0.0.0';
-const SERVER_NAME = 'webaverse.wedoteam.io';
+//const SERVER_NAME = 'webaverse.wedoteam.io';
+const isProduction = process.argv[2] === '-p';
+var SERVER_NAME = '';
+
+//if (isProduction)
+  SERVER_NAME = 'webaverse.wedoteam.io';
+//else
+//  SERVER_NAME= 'local.webaverse.io';
 
 Error.stackTraceLimit = 300;
 const cwd = process.cwd();
 
-const isProduction = process.argv[2] === '-p';
+
 
 const _isMediaType = p => /\.(?:png|jpe?g|gif|svg|glb|mp3|wav|webm|mp4|mov)$/.test(p);
 
