@@ -34,7 +34,7 @@ class Universe extends EventTarget {
   }
   async enterWorld(worldSpec) {
     this.disconnectRoom();
-    
+
     const localPlayer = metaversefile.useLocalPlayer();
     /* localPlayer.teleportTo(new THREE.Vector3(0, 1.5, 0), camera.quaternion, {
       relation: 'float',
@@ -54,7 +54,7 @@ class Universe extends EventTarget {
       if (!room) {
         const state = new Z.Doc();
         this.connectState(state);
-        
+
         let match;
         if (src === undefined) {
           promises.push(metaversefile.createAppAsync({
@@ -80,7 +80,7 @@ class Universe extends EventTarget {
         })();
         promises.push(p);
       }
-      
+
       this.sceneLoadedPromise = Promise.all(promises)
         .then(() => {});
       await this.sceneLoadedPromise;
@@ -146,6 +146,7 @@ class Universe extends EventTarget {
     world.appManager.bindState(appsArray);
 
     const localPlayer = playersManager.getLocalPlayer();
+  //  alert("localPlayer: "+localPlayer);
     localPlayer.bindState(state.getArray(playersMapName));
   }
 
@@ -159,7 +160,7 @@ class Universe extends EventTarget {
     await physx.waitForLoad();
     await physxWorkerManager.waitForLoad();
     const localPlayer = playersManager.getLocalPlayer();
-
+//alert("universe.sj localPlayer: "+JSON.stringify(localPlayer));
     state.setResolvePriority(1);
 
     // Create a new instance of the websocket rtc client
@@ -191,6 +192,7 @@ class Universe extends EventTarget {
 
         this.wsrtc.addEventListener('audio', e => {
           const player = playersManager.remotePlayersByInteger.get(e.data.playerId);
+      //    alert("universe.js e.data.playerID: "+e.data.playerId);
           player.processAudioData(e.data);
         });
       };
