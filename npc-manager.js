@@ -105,7 +105,7 @@ class NpcManager extends EventTarget {
     });
 
     const mode = app.getComponent('mode') ?? 'attached';
-    
+
     const animations = Avatar.getAnimations();
     const hurtAnimation = animations.find(a => a.isHurt);
     const hurtAnimationDuration = hurtAnimation.duration;
@@ -132,7 +132,7 @@ class NpcManager extends EventTarget {
                 animation: 'pain_back',
               };
               npcPlayer.addAction(newAction);
-              
+
               setTimeout(() => {
                 npcPlayer.removeAction('hurt');
               }, hurtAnimationDuration * 1000);
@@ -160,7 +160,7 @@ class NpcManager extends EventTarget {
         const frame = e => {
           if (npcPlayer && physicsScene.getPhysicsEnabled()) {
             const {timestamp, timeDiff} = e.data;
-            
+
             if (targetSpec) {
               const target = targetSpec.object;
               const v = localVector.setFromMatrixPosition(target.matrixWorld)
@@ -213,6 +213,7 @@ class NpcManager extends EventTarget {
 
       // npc pameters
       let avatarUrl = json.avatarUrl;
+      //alert("avatarUrl "+json.avatarUrl);
       avatarUrl = createRelativeUrl(avatarUrl, srcUrl);
       const npcName = json.name ?? 'Anon';
       const npcVoiceName = json.voice ?? 'Shining armor';
@@ -249,7 +250,7 @@ class NpcManager extends EventTarget {
             const newSssAction = {
               type: 'sss',
             };
-            npcPlayer.addAction(newSssAction);  
+            npcPlayer.addAction(newSssAction);
           } else if (action === 'follow' || (object === 'none' && target === localPlayer.name)) { // follow player
             targetSpec = {
               type: 'follow',
@@ -323,7 +324,7 @@ class NpcManager extends EventTarget {
       };
       await _updateWearables();
       if (!live) return;
-      
+
       // latch
       npcPlayer = newNpcPlayer;
     }
