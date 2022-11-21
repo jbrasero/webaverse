@@ -146,7 +146,7 @@ class PlayerBase extends THREE.Object3D {
     this.detached = false;
 
     this.avatar = null;
-    
+
     this.appManager = new AppManager({
       appsMap: null,
     });
@@ -166,10 +166,10 @@ class PlayerBase extends THREE.Object3D {
     this.headTarget = new THREE.Vector3();
     this.headTargetInverted = false;
     this.headTargetEnabled = false;
-    
+
     this.eyeballTarget = new THREE.Vector3();
     this.eyeballTargetEnabled = false;
-    
+
     this.voicePack = null;
     this.voiceEndpoint = null;
   }
@@ -481,10 +481,10 @@ class PlayerBase extends THREE.Object3D {
         }
       };
       _enableAppPhysics();
-      
+
       const _removeApp = () => {
         this.removeActionIndex(wearActionIndex);
-        
+
         if (this.appManager.hasTrackedApp(app.instanceId)) {
           if (destroy) {
             this.appManager.removeApp(app);
@@ -498,7 +498,7 @@ class PlayerBase extends THREE.Object3D {
         }
       };
       _removeApp();
-      
+
       const _emitEvents = () => {
         app.dispatchEvent({
           type: 'wearupdate',
@@ -553,17 +553,18 @@ class StatePlayer extends PlayerBase {
     super();
 
     this.playerId = playerId;
+    //alert(playersMapName);
     this.playerIdInt = murmurhash3(playerId);
     this.playersArray = null;
     this.playerMap = null;
     this.microphoneMediaStream = null;
 
     this.characterPhysics = new CharacterPhysics(this);
-    
+
     this.avatarEpoch = 0;
     this.syncAvatarCancelFn = null;
     this.unbindFns = [];
-    
+
     this.transform = new Float32Array(7);
     this.bindState(playersArray);
   }
@@ -620,14 +621,14 @@ class StatePlayer extends PlayerBase {
   bindState(nextPlayersArray) {
     // latch old state
     const oldState = this.detachState();
-    
+
     // unbind
     this.unbindState();
     this.appManager.unbindState();
     this.unbindCommonObservers();
-    
+
     // note: leave the old state as is. it is the host's responsibility to garbage collect us when we disconnect.
-    
+
     // blindly add to new state
     this.playersArray = nextPlayersArray;
     this.attachState(oldState);
@@ -651,7 +652,7 @@ class StatePlayer extends PlayerBase {
     const cancelFn = makeCancelFn();
     this.syncAvatarCancelFn = cancelFn;
     const instanceId = this.getAvatarInstanceId();
-    
+
     // remove last app
     if (this.avatar) {
       const oldPeerOwnerAppManager = this.appManager.getPeerOwnerAppManager(this.avatar.app.instanceId);
@@ -663,7 +664,7 @@ class StatePlayer extends PlayerBase {
         // this.appManager.removeTrackedApp(this.avatar.app.instanceId);
       }
     }
-    
+
     const _setNextAvatarApp = app => {
       (() => {
         const avatar = switchAvatar(this.avatar, app);
@@ -675,20 +676,20 @@ class StatePlayer extends PlayerBase {
           app,
           avatar,
         });
-        
+
         this.characterPhysics.loadCharacterController(this.avatar.width, this.avatar.height);
-        
+
         if (this.isLocalPlayer) {
           physicsScene.disableGeometryQueries(this.characterPhysics.characterController);
         }
       })();
-      
+
       this.dispatchEvent({
         type: 'avatarupdate',
         app,
       });
     };
-    
+
     if (instanceId) {
       // add next app from player app manager
       const nextAvatarApp = this.appManager.getAppByInstanceId(instanceId);
@@ -715,7 +716,7 @@ class StatePlayer extends PlayerBase {
         }
       }
     }
-    
+
     this.syncAvatarCancelFn = null;
   }
   setSpawnPoint(position, quaternion) {
@@ -731,7 +732,7 @@ class StatePlayer extends PlayerBase {
     }
   }
   getActionsByType(type) {
-   const actions = this.getActionsState(); 
+   const actions = this.getActionsState();
    const typedActions = Array.from(actions).filter(action => action.type === type);
    return typedActions;
   }
@@ -806,9 +807,9 @@ class StatePlayer extends PlayerBase {
       while (actions.length > 0) {
         actions.delete(actions.length - 1);
       }
-      
+
       this.playerMap.delete('avatar');
-      
+
       const apps = self.getAppsState();
       while (apps.length > 0) {
         apps.delete(apps.length - 1);
@@ -833,12 +834,12 @@ class StatePlayer extends PlayerBase {
       while (actions.length > 0) {
         actions.delete(actions.length - 1);
       }
-      
+
       const avatar = self.getAvatarInstanceId();
       if (avatar) {
         this.playerMap.set('avatar', avatar);
       }
-      
+
       const apps = self.getAppsState();
       if (Array.isArray(j?.apps)) {
         for (const app of j.apps) {
@@ -852,7 +853,7 @@ class StatePlayer extends PlayerBase {
     this.appManager.unbindState();
 
     this.appManager.destroy();
-  
+
     super.destroy();
   }
 }
@@ -922,7 +923,7 @@ class InterpolatedPlayer extends StatePlayer {
       }, 0, crouchMaxTime),
     };
     this.actionInterpolantsArray = Object.keys(this.actionInterpolants).map(k => this.actionInterpolants[k]);
-    
+
     this.avatarBinding = {
       position: this.positionInterpolant.get(),
       quaternion: this.quaternionInterpolant.get(),
@@ -959,7 +960,7 @@ class InterpolatedPlayer extends StatePlayer {
 class UninterpolatedPlayer extends StatePlayer {
   constructor(opts) {
     super(opts);
-    
+
     UninterpolatedPlayer.init.apply(this, arguments)
   }
   static init() {
@@ -1024,7 +1025,7 @@ class LocalPlayer extends UninterpolatedPlayer {
   }
   async setPlayerSpec(playerSpec) {
     const p = this.setAvatarUrl(playerSpec.avatarUrl);
-    
+
     overrides.userVoiceEndpoint.set(playerSpec.voice ?? null);
     overrides.userVoicePack.set(playerSpec.voicePack ?? null);
 
@@ -1097,7 +1098,7 @@ class LocalPlayer extends UninterpolatedPlayer {
       oldAvatar,
       oldApps,
     } = oldState;
-    
+
     const self = this;
     this.playersArray.doc.transact(function tx() {
       self.playerMap = new Z.Map();
@@ -1107,12 +1108,12 @@ class LocalPlayer extends UninterpolatedPlayer {
       self.position.toArray(self.transform, 0);
       self.quaternion.toArray(self.transform, 3);
       self.playerMap.set('transform', self.transform);
-      
+
       const actions = self.getActionsState();
       for (const oldAction of oldActions) {
         actions.push([oldAction]);
       }
-      
+
       const apps = self.getAppsState();
       for (const oldApp of oldApps) {
         const mapApp = new Z.Map();
@@ -1122,7 +1123,7 @@ class LocalPlayer extends UninterpolatedPlayer {
         }
         apps.push([mapApp]);
       }
-      
+
       if (oldAvatar !== undefined && oldAvatar !== null && oldAvatar !== '') {
         self.playerMap.set('avatar', oldAvatar);
       }
@@ -1154,7 +1155,7 @@ class LocalPlayer extends UninterpolatedPlayer {
         .toArray()
     };
     this.addAction(grabAction);
-    
+
     physicsScene.disableAppPhysics(app)
 
     app.dispatchEvent({
@@ -1200,7 +1201,7 @@ class LocalPlayer extends UninterpolatedPlayer {
     const self = this;
     this.playersArray.doc.transact(() => {
       if (!this.matrixWorld.equals(this.lastMatrix)) {
-        self.position.toArray(self.transform);      
+        self.position.toArray(self.transform);
         self.quaternion.toArray(self.transform, 3);
         self.playerMap.set('transform', self.transform);
         this.lastMatrix.copy(this.matrixWorld);
@@ -1252,7 +1253,7 @@ class LocalPlayer extends UninterpolatedPlayer {
         localMatrix.copy(xrCamera.matrix)
           .premultiply(dolly.matrix)
           .decompose(localVector, localQuaternion, localVector2);
-          
+
         dolly.matrix
           .premultiply(localMatrix.makeTranslation(position.x - localVector.x, position.y - localVector.y, position.z - localVector.z))
           // .premultiply(localMatrix.makeRotationFromQuaternion(localQuaternion3.copy(quaternion).inverse()))
@@ -1320,8 +1321,10 @@ class RemotePlayer extends InterpolatedPlayer {
   }
   attachState(oldState) {
     let index = -1;
+    //alert(JSON.stringify(this.playersArray));
     for (let i = 0; i < this.playersArray.length; i++) {
       const player = this.playersArray.get(i, Z.Map);
+    //  alert(JSON.stringify(player));
       if (player.get('playerId') === this.playerId) {
         index = i;
         break;
@@ -1350,6 +1353,7 @@ class RemotePlayer extends InterpolatedPlayer {
 
       if (e.changes.keys.get('name')) {
         this.name = e.changes.keys.get('name').value;
+        alert("this.name "+this.name);
       }
 
       if (e.changes.keys.has('transform')) {
@@ -1372,7 +1376,7 @@ class RemotePlayer extends InterpolatedPlayer {
           localVector.copy(this.position);
           localVector.y -= this.avatar.height * 0.5;
           physicsScene.setCharacterControllerPosition(this.characterPhysics.characterController, localVector);
-          
+
           this.avatar.setVelocity(
             timeDiff / 1000,
             this.lastPosition,
@@ -1470,7 +1474,7 @@ class RemotePlayer extends InterpolatedPlayer {
 /* class NpcPlayer extends LocalPlayer {
   constructor(opts) {
     super(opts);
-  
+
     this.isLocalPlayer = false;
     this.isNpcPlayer = true;
   }

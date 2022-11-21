@@ -80,7 +80,7 @@ export default () => {
     const textMesh = await getTextMesh(
 //      player.name,
       //COMENT BY JESUS
-      "Player"
+      "Player",
       font,
       fontSize,
       anchorX,
