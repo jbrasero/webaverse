@@ -57,6 +57,7 @@ class Universe extends EventTarget {
 
         let match;
         if (src === undefined) {
+    //      alert(" sceneNames[0] "+ sceneNames[0]);
           promises.push(metaversefile.createAppAsync({
             start_url: './scenes/' + sceneNames[0],
           }));

@@ -110,7 +110,7 @@
         1
       ],
       "physics": true,
-      "start_url": "/scenes/assets/RTA/old_wooden_desk.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/BNTgWkm-ljfsLjf34oFODF_4EJ1XWy9Prt0x6Xir3rJb2WIYG9ctOyD_2jdmWkpt/n/wedoinfra/b/3dobjects/o/rta/old_wooden_desk.glb",
       "dynamic": false
     },
     {
@@ -131,7 +131,7 @@
         0.3
       ],
       "physics": true,
-      "start_url": "/scenes/assets/RTA/sci-fi_computer.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/gnsYm7JnE3S-HAwdlFmtw3rbt-UIEc5w2W-Rjl5DctrjhKSq56goESsKJ2a1EP3K/n/wedoinfra/b/3dobjects/o/rta/sci-fi_computer.glb",
       "dynamic": false
     },
 
@@ -155,7 +155,7 @@
       "type": "application/npc",
       "content": {
         "name": "Assistant",
-        "avatarUrl": "/scenes/assets/RTA/jun_engineer_v1_vian.vrm",
+        "avatarUrl": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/Vap50zaUcE10InDbau4Ar8zYR3wjHNRRRIiQCGsLI0x4SFQmBUvDdX_3Qa6-sfjE/n/wedoinfra/b/3dobjects/o/rta/jun_engineer_v1_vian.vrm",
         "voice": "Maud Pie",
         "bio": "Eng"
       }
@@ -168,7 +168,7 @@
         0
       ],
       "physics": true,
-      "start_url": "/scenes/assets/RTA/tropical_island.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ucNkrW9GCMPEe16erM-YkFCIDnZG7GgCL52PlsVUEbs_3ziPIpCgRoqrkhKQT62c/n/wedoinfra/b/3dobjects/o/rta/tropical_island.glb",
       "dynamic": false
     },
 
@@ -185,7 +185,7 @@
         10.3
       ],
       "physics": true,
-      "start_url": "/scenes/assets/RTA/irwin_38.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/NEmzsv7EyqRogb7_gQWisZrshisNKq1-CnmwLJy_kxO_QU9OG5jQGTYqmpPk3kv6/n/wedoinfra/b/3dobjects/o/rta/irwin_38.glb",
       "dynamic": false
     },
 
@@ -207,7 +207,7 @@
         0.70710678
       ],
       "physics": true,
-      "start_url": "/scenes/assets/wedo/wedo-green.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ZDdjSmh3Y-zBRBRb2krjB3iv2BXT8ooUNTsGEiFk13z75A1T-YsWxOb1X1jnf43P/n/wedoinfra/b/3dobjects/o/branding/wedo-green.glb",
       "dynamic": false
     }
 

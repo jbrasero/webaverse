@@ -153,6 +153,18 @@ function makeId(length) {
     }
   })();
   const initialRoomState = (() => {
+    //ADDED BY JESUS
+  /*  var defaultScene="health.scn";
+    const queryParams = new URLSearchParams(window.location.search)
+    for (const [key, value] of queryParams) {
+      console.log({ key, value })
+      if (key=="src")
+      {
+          defaultScene = value;
+          alert("defaultScene "+defaultScene);
+      }
+    }*/
+
     const s = fs.readFileSync('./scenes/health.scn', 'utf8');
     const j = JSON.parse(s);
     const {objects} = j;

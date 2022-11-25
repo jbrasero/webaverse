@@ -55,7 +55,7 @@
           0.5
         ],
         "physics": true,
-        "start_url": "/scenes/assets/human_brain.glb",
+        "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ucMpzHIl6d4Ioc3N2E8zRfCrnHAf3WoZ1tUfXsM8lv17ZjYevMIPDbHca4s9y0VO/n/wedoinfra/b/3dobjects/o/healthcare/human_brain.glb",
         "dynamic": false
       },
       {
@@ -76,7 +76,7 @@
           0.025
         ],
         "physics": true,
-        "start_url": "/scenes/assets/digestive_system.glb",
+        "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/7_0UD4LXdW4Hz0koJukEBlvUerp55emYaV80VbqG9cv91SitUsPppe9uUnsSISo1/n/wedoinfra/b/3dobjects/o/healthcare/digestive_system.glb",
         "dynamic": false
       },
       {
@@ -97,7 +97,7 @@
           0.030
         ],
         "physics": true,
-        "start_url": "/scenes/assets/male_full_body_ecorche.glb",
+        "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/OJ6H_W5Sp8REKnTuWDHCeEwotzbGRTG530GTFnNUhABUYKU5P8Ut8cUF-8HphuD4/n/wedoinfra/b/3dobjects/o/healthcare/male_full_body_ecorche.glb",
         "dynamic": false
       },
       {
@@ -118,7 +118,7 @@
           0.75
         ],
         "physics": true,
-        "start_url": "/scenes/assets/upper_body_anatomy.glb",
+        "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ZRUy7jDXZfG0TaUzWriOEsTfN7t46fE-Js9obS8_3hRrm-uzdolN4Yy2zoT5OW_V/n/wedoinfra/b/3dobjects/o/healthcare/upper_body_anatomy.glb",
         "dynamic": false
       },
       {
@@ -148,7 +148,7 @@
             0.12
           ],
           "physics": true,
-          "start_url": "/scenes/assets/dna_animation.glb",
+          "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/KGDANTHAlzOIagGAGbWTNaUWfWdAQMftT6oX6wDjed-1wrI9kQ8QE6GgJO6TN7_I/n/wedoinfra/b/3dobjects/o/healthcare/dna_animation.glb",
           "dynamic": false
         },
         {
@@ -169,34 +169,14 @@
             0.19
           ],
           "physics": true,
-          "start_url": "/scenes/assets/x-ray_torso.glb",
+          "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/J8vNYwrFb971E-X-m5qNiPmQ1JTy5Fa9TKnlNTxT5t-0bI0Ws3oMI6gFhpaYmC3E/n/wedoinfra/b/3dobjects/o/healthcare/x-ray_torso.glb",
           "dynamic": false
         },
-        {
-          "position": [
-            20.65,
-            0,
-            -13.78
-          ],
-          "quaternion": [
-            0,
-            -0.70710678,
-            0,
-            1
-          ],
-          "scale": [
-            1.25,
-            1.25,
-            1.25
-          ],
-          "physics": true,
-          "start_url": "/scenes/assets/futuristic_chair.glb",
-          "dynamic": false
-        },
+     
 
         {
           "position": [
-            21.23,
+            21.13,
             1,
             -10.67
           ],
@@ -212,38 +192,14 @@
             1.9
           ],
           "physics": true,
-          "start_url": "/scenes/assets/heart/heart.glb",
+          "start_url": "/scenes/assets/heart/",
           "dynamic": true
-        },
-
-
-
-
-        {
-          "type": "application/text",
-          "content": {
-            "text": "Initial Diagnose: Restrictive cardiomyopathy",
-            "font": "./fonts/Futura LT Condensed Medium.ttf",
-            "fontSize": 1,
-            "anchorX": "left",
-            "anchorY": "middle",
-            "color": [89, 145, 142]
-          },
-          "position": [
-            21.0,
-            1.42,
-            -10.67
-          ],  "scale": [
-              0.1,
-              0.1,
-              0.1
-            ]
         },
 
         {
           "position": [
             21.23,
-            0.8,
+            0,
             -10.67
           ],
           "quaternion": [
@@ -253,12 +209,12 @@
             1
           ],
           "scale": [
-            1.75,
-            1.75,
-            1.75
+            0.5,
+            0.5,
+            0.5
           ],
           "physics": true,
-          "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/xvKQl9W_JaU6gsUsucqM3icKhnF7w92EsX4bmyk3UGFp5lNSAKE-4kLbxEIFq3kK/n/wedoinfra/b/3dobjects/o/healthcare/doctor_desk.glb",
+          "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/RnVbCuVKeWybV9OtqzdDK9cg51CAhIbKeqO13ao8T8dqH4PcotcU92p3XOo3vjvg/n/wedoinfra/b/3dobjects/o/healthcare/sci-fi_table.glb",
           "dynamic": false
         },
 
@@ -281,40 +237,18 @@
             1.75
           ],
           "physics": true,
-          "start_url": "/scenes/assets/lungs.glb",
+          "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/1hyefjeHiynboUoNuLXNeb-9nHxRCg5AdBshI2OMFyP68u-dOuxHOAXO3KLWHFnD/n/wedoinfra/b/3dobjects/o/healthcare/lungs.glb",
           "dynamic": false
         },
 
-
-        {
-        "position": [
-        21.23,
-        0.0,
-        -8.67
-        ],
-        "quaternion": [
-        0,
-        0.70710678,
-        0,
-        0.70710678
-        ],
-        "scale": [
-          0.01,
-          0.01,
-          0.01
-        ],
-          "physics": true,
-          "start_url": "/scenes/assets/piano-main/",
-          "dynamic": false
-        },
 
 
 
         {
           "position": [
-          20.80,
+          24.80,
           0,
-          -11.53
+          -2.46
           ],
           "quaternion": [
           0,
@@ -373,7 +307,7 @@
         0.91
       ],
       "physics": true,
-      "start_url": "/scenes/assets/wedo/wedo-green.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ZDdjSmh3Y-zBRBRb2krjB3iv2BXT8ooUNTsGEiFk13z75A1T-YsWxOb1X1jnf43P/n/wedoinfra/b/3dobjects/o/branding/wedo-green.glb",
       "dynamic": false
     },
 

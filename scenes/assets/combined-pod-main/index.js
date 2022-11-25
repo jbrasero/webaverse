@@ -7,10 +7,12 @@ import {makeId, createRelativeUrl} from '../../../util.js';
 import {Text} from 'troika-three-text'
 //import './chat/js/web-sdk22.4.js';
 //import './chat/js/settings22.4.js';
-
+import './chat/js/web-sdk.js';
+import './chat/js/settings.js';
 
 
 const baseUrl = import.meta.url.replace(/(\/)[^\/\/]*$/, '$1');
+
 
 export default e => {
 

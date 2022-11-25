@@ -960,6 +960,7 @@ export const handleUpload = async (item, { onProgress = null } = {}) => {
     const files = item;
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
+     // alert("uploading "+file.name);
       formData.append(file.name, file, file.name);
     }
 
@@ -982,6 +983,7 @@ export const handleUpload = async (item, { onProgress = null } = {}) => {
       }
       const fullPath = getFullPath(entry);
       // console.log('directory full path', entry.fullPath, rootEntry.fullPath, fullPath);
+     // alert('directory full path', entry.fullPath, rootEntry.fullPath, fullPath);
       formData.append(
         fullPath,
         new Blob([], {
@@ -1060,6 +1062,8 @@ export const handleUpload = async (item, { onProgress = null } = {}) => {
   };
   const u = await _uploadObject(item);
   console.log('upload complete:', u);
+  //ADDED JBRASERO
+  //alert('upload complete: '+ u);
   return u;
 };
 

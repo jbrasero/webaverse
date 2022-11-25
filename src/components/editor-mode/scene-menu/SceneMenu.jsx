@@ -97,15 +97,17 @@ export const SceneMenu = ({ className, multiplayerConnected, selectedScene, setS
 
     const handleRoomCreateBtnClick = async () => {
         const sceneName = selectedScene.trim();
+      //  alert(sceneName);
         const data = null; // Z.encodeStateAsUpdate( world.getState( true ) );
-
         const roomName = makeId(5);
-
+      /*  alert(roomName);*/
+        alert(universe.getWorldsHost()+roomName);
+      /*  alert(data);*/
         const res = await fetch(universe.getWorldsHost() + roomName, {
           method: 'POST',
           body: data,
         });
-    
+
         if (res.ok) {
           refreshRooms();
           setSelectedRoom(roomName);
@@ -123,7 +125,7 @@ export const SceneMenu = ({ className, multiplayerConnected, selectedScene, setS
         setState({ openedPanel: null });
 
         if ( ! universe.isConnected() ) {
-
+//alert(selectedScene);
             universe.pushUrl( `/?src=${ encodeURIComponent( selectedScene ) }&room=${ room.name }` );
 
             /* const isConnected = world.isConnected();

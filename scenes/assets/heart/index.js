@@ -1,28 +1,28 @@
 import * as THREE from 'three';
+// import easing from './easing.js';
 import metaversefile from 'metaversefile';
-const {useApp, useFrame, useActivate, useLocalPlayer, useVoices, useChatManager, useLoreAI, useLoreAIScene, useAvatarAnimations, useLoaders ,useNpcManager, useScene, usePhysics, useCleanup} = metaversefile;
+const {useApp, useFrame, useActivate, useLocalPlayer, useVoices, useChatManager, useLoreAI, useLoreAIScene, useAvatarAnimations, useLoaders ,useNpcManager, useScene, usePhysics, useCleanup , addTrackedApp, useDropManager, useDefaultModules, } = metaversefile;
 
 const baseUrl = import.meta.url.replace(/(\/)[^\/\\]*$/, '$1');
 
-export default () => {
+export default e => {
   const app = useApp();
-  const scene = useScene();
+  const physics = usePhysics();
+  const dropManager = useDropManager();
   const npcManager = useNpcManager();
   const localPlayer = useLocalPlayer();
-  const physics = usePhysics();
   const chatManager = useChatManager();
   const loreAIScene = useLoreAIScene();
   const voices = useVoices();
 
-  //const animations = useAvatarAnimations();
-  //const hurtAnimation = animations.find(a => a.isHurt);
-  //const hurtAnimationDuration = hurtAnimation.duration;
+  app.name = 'heart';
 
-  //let animations = [];
+  let activateCb = null;
+  let frameCb = null;
   let mixer = null;
   let clips = null;
+  let targetSpec = null;
 
-  app.name = 'heart';
 
   app.addEventListener('hit', e => {
     _playAnimation();
@@ -35,56 +35,159 @@ export default () => {
   }
 
 
-    app.addEventListener('hit', e => {
-       console.log("hit");
-    });
-
-  let targetSpec = null;
   useActivate(() => {
     console.log('activate heart');
+    activateCb && activateCb();
+  });
 
-});
+/*  useFrame(({timeDiff}) => {
 
-  useFrame(({timeDiff}) => {
+          if(mixer) {
+            const deltaSeconds = timeDiff / 1000;
+            mixer.update(deltaSeconds);
+            app.updateMatrixWorld();
+          }
+          frameCb && frameCb();
 
-    if(mixer) {
-      //console.log("using frame");
-      console.log(localPlayer.position);
-      const deltaSeconds = timeDiff / 1000;
-      mixer.update(deltaSeconds);
-      app.updateMatrixWorld();
-    }
+    });*/
 
+  useFrame(() => {
+    frameCb && frameCb();
   });
 
 
+
+  let live = true;
+  let reactApp = null;
   let physicsIds = [];
+
+//  e.waitUntil((async () => {
   (async () => {
     const u = `${baseUrl}heart.glb`;
     let o = await new Promise((accept, reject) => {
       const {gltfLoader} = useLoaders();
       gltfLoader.load(u, accept, function onprogress() {}, reject);
     });
+
+
+    if (!live) {
+      o.destroy();
+      return;
+    }
     mixer = new THREE.AnimationMixer( o.scene );
     clips = o.animations;
 
+    const {animations} = o;
     o = o.scene;
-
     o.traverse(obj => {
       if(obj.isMesh) {
         obj.castShadow = true;
       }
     });
-
     app.add(o);
+
+    //
+
+
+
+    {
+      const u = `${baseUrl}inventory-banner.react`;
+      reactApp = await metaversefile.createAppAsync({
+        start_url: u,
+      });
+      if (!live) {
+        reactApp.destroy();
+        return;
+      }
+      reactApp.position.y = 0.75;
+      app.add(reactApp);
+      reactApp.updateMatrixWorld();
+    }
+
+    //
+
+
 
     const physicsId = physics.addGeometry(o);
     physicsIds.push(physicsId);
+
+  //  const
+    //const mixer = new THREE.AnimationMixer(o);
+    const actions = animations.map(animationClip => mixer.clipAction(animationClip));
+
+    const startOffset = 1;
+    const endOffset = 2;
+    const dropOffset = 1;
+    activateCb = () => {
+      // console.log('got activate');
+
+      for (const action of actions) {
+        action.reset();
+        action.play();
+        action.time = startOffset;
+      }
+
+      let timeAcc = 0;
+      let lastUpdateTime = Date.now();
+      let dropped = false;
+      function animate() {
+        const now = Date.now();
+        const timeDiff = (now - lastUpdateTime) / 1000;
+        lastUpdateTime = now;
+
+        timeAcc += timeDiff;
+        if (!dropped && timeAcc >= dropOffset) {
+          const {moduleUrls} = useDefaultModules();
+
+
+          const dropManager = useDropManager();
+
+          dropManager.createDropApp({
+            // type: 'minor',
+            type: 'major',
+            // start_url: moduleUrls.silk,
+            start_url: 'https://webaverse.github.io/uzi/index.js',
+            components: [
+              {
+                key: 'appName',
+                // value: 'Silk'
+                value: 'Axe'
+              },
+              {
+                key: 'appUrl',
+                // value: moduleUrls.silk
+                value: 'https://webaverse.github.io/uzi/index.js'
+              }
+            ],
+            position: app.position.clone()
+              .add(new THREE.Vector3(0, 0.7, 0)),
+            quaternion: app.quaternion,
+            scale: app.scale
+          });
+
+          dropped = true;
+        }
+        if (timeAcc >= endOffset) {
+          frameCb = null;
+        } else {
+          mixer.update(timeDiff);
+
+      //  const deltaSeconds = timeDiff / 1000;
+      //    mixer.update(deltaSeconds);
+          app.updateMatrixWorld();
+
+          mixer.getRoot().updateMatrixWorld();
+        }
+      }
+      frameCb = animate;
+    };
+//  })());
   })();
 
   useCleanup(() => {
+    live = false;
+    reactApp && reactApp.destroy();
     for (const physicsId of physicsIds) {
-      console.log("using Cleanup");
       physics.removeGeometry(physicsId);
     }
   });

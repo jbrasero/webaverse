@@ -95,7 +95,7 @@
         1.5
       ],
       "physics": false,
-      "start_url": "/scenes/assets/wedo/wedo-green.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ZDdjSmh3Y-zBRBRb2krjB3iv2BXT8ooUNTsGEiFk13z75A1T-YsWxOb1X1jnf43P/n/wedoinfra/b/3dobjects/o/branding/wedo-green.glb",
       "dynamic": true
     },
 
@@ -118,7 +118,7 @@
         0
       ],
       "physics": true,
-      "start_url": "/scenes/assets/wedo/oracle-logo.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/_FUbLP3N2FC3WdajOQx-pOZuSpzwjx6GGK43ikMopFAZsiz46J4uBlIYpE7apw0u/n/wedoinfra/b/3dobjects/o/branding/oracle-logo.glb",
       "dynamic": false
     }
 

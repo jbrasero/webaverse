@@ -1,8 +1,18 @@
 // settings.js
+var defaultPlayerName="ANON";
+const queryParams = new URLSearchParams(window.location.search)
+for (const [key, value] of queryParams) {
+  console.log({ key, value })
+  if (key=="name")
+  {
+      defaultPlayerName = value;
+  }
+}
+
 var chatSettings = {
     URI: 'oda-cfcc2c5ccc044fd795d9e25f8772165e-da4.data.digitalassistant.oci.oraclecloud.com',
     channelId: '1386fc82-56c4-429c-a521-8298eb8485ba',
-//    userId: 'John',
+    userId: defaultPlayerName,
     enableHeadless: true,
     enableAttachment: false,
     enableBotAudioResponse: true,
@@ -12,10 +22,12 @@ var chatSettings = {
     speechLocale: 'en-us',
   //  displayActionsAsPills: true,
     enableClearMessage: true,
-    initUserHiddenMessage: 'hello',
-  //  openChatOnLoad: true,
-    showConnectionStatus: true
-
+  //  initUserHiddenMessage: 'hello',
+    openChatOnLoad: false,
+    showConnectionStatus: true,
+	position: {bottom: '85px', right: '20px'},
+    chatBubbleIconHeight: '24px',
+    chatBubbleIconWidth: '24px'
   //  theme: 'classic'
 };
 

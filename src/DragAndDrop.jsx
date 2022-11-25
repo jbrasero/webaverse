@@ -271,7 +271,7 @@ const DragAndDrop = () => {
               <span>Drop</span>
               <sub>to world</sub>
             </div>
-            <div className={style.button} onClick={_equip}>
+            <div className={style.button} disabled onClick={_equip}>
               <span>Equip</span>
               <sub>to self</sub>
             </div>

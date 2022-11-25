@@ -41,12 +41,9 @@ function ChatInput () {
         const handleActiveKey = ( event ) => {
 
             if ( game.inputFocused() && document.activeElement !== inputRef.current ) {
-                
-                return true;
-
-            
+                return true;          
             } else {
-
+               
                 switch ( event.which ) {
 
                     case 13: { // enter

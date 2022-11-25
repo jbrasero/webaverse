@@ -286,7 +286,7 @@
         0.91
       ],
       "physics": true,
-      "start_url": "/scenes/assets/wedo/wedo-green.glb",
+      "start_url": "https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ZDdjSmh3Y-zBRBRb2krjB3iv2BXT8ooUNTsGEiFk13z75A1T-YsWxOb1X1jnf43P/n/wedoinfra/b/3dobjects/o/branding/wedo-green.glb",
       "dynamic": false
     },
 

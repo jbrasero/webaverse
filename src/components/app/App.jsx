@@ -67,6 +67,7 @@ const _getCurrentSceneSrc = () => {
     if ( src === undefined ) {
 
         src = './scenes/' + sceneNames[0];
+      //  alert("src "+src);
 
     }
 
