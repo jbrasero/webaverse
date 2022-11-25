@@ -70,8 +70,8 @@ switch ( origin ) {
         _inappPreviewHost = `https://local.webaverse.online:${globalThis.location.port}`;
         break;
     }
-    case 'https://webaverse.wedoteam.io': {
-        _inappPreviewHost = `https://webaverse.wedoteam.online:${globalThis.location.port}`;
+    case 'https://wedoverse.wedoteam.io': {
+        _inappPreviewHost = `https://wedoverse.wedoteam.online:${globalThis.location.port}`;
     //    _inappPreviewHost = `https://local.webaverse.online:${globalThis.location.port}`;
         break;
     }

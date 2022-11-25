@@ -13,7 +13,7 @@ const isProduction = process.argv[2] === '-p';
 var SERVER_NAME = '';
 
 //if (isProduction)
-  SERVER_NAME = 'webaverse.wedoteam.io';
+  SERVER_NAME = 'wedoverse.wedoteam.io';
 //else
 //  SERVER_NAME= 'local.webaverse.io';
 
