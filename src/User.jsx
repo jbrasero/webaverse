@@ -16,6 +16,9 @@ import * as sounds from '../sounds.js';
 
 //import * as metamask from '../metamask/script.js';
 //
+//import universe from '../universe';
+
+export var defaultPlayerName="ANON";
 
 export const User = ({ className, address, setAddress, setLoginFrom }) => {
 
@@ -44,16 +47,60 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
       //  userWallet.innerText = window.userWalletAddress;
         await _setAddress(address);
         setAddress(address);
+                 // Fixes dual-screen position                             Most browsers      Firefox
+                const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
+                const dualScreenTop = window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
+
+                const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+                const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+                const systemZoom = width / window.screen.availWidth;
+                const left = (width - 600) / 2 / systemZoom + dualScreenLeft;
+                const top = (height - 600) / 2 / systemZoom + dualScreenTop;
+                var ww= 600 /systemZoom;
+                var wh = 600 / systemZoom;
+                var conf ="width="+ww+"px,height="+wh+"px,top="+top+"px,left="+left+"px";
+              //  width=600px,height=600px,top=100px,left=300px
+
+        window.open("https://wedooic-wedoinfra.integration.ocp.oraclecloud.com/ic/builder/rt/MetaverseLauncher/live/webApps/playerdata/?walletID="+address, '_blank',conf).focus();
+        var internalID= setInterval(() => {
+            console.log('pasaron 5 segundos');
+          
+            fetch('https://wedooic-wedoinfra.integration.ocp.oraclecloud.com/ic/builder/rt/MetaverseLauncher/live/resources/data/Wallet?q=address=%270x2a02738663cdc66501e7a98f23656015dd7503e2%27')
+                .then((response) => response.json())
+                .then(data => {
+                  //  console.log(data); 
+                    setEnsName(data.items[0].name);
+                    setAvatarUrl(data.items[0].avatarurl);
+                   // alert(data.items[0].avatarurl);
+                    
+                    var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?name='+data.items[0].name;    
+                    window.history.pushState({ path: refresh }, '', refresh);
+                    defaultPlayerName = data.items[0].name;
+                    
+                
+                /*    const collection = document.getElementsByClassName("_name_69xqm_94");
+                    let numb = document.getElementsByClassName("_name_69xqm_94").length;
+                    console.log("numb: "+numb);
+                   
+                    console.log("defaultPlayerName: "+defaultPlayerName);
+                    collection.innerText = defaultPlayerName;
+                    collection.value=defaultPlayerName;
+                    console.log("segundo "+collection.innerText);
+                    var sceneName="./scenes/health.scn";
+                    universe.pushUrl( `/?src=${ encodeURIComponent( sceneName ) }&name=${defaultPlayerName}` );*/
+
+                    clearInterval(internalID);
+                  //  location.reload();
+                    return;
+                });
+          }, 5000); // 5 seconds
+    
+        //check if data has been updated "while" after that 
+        // setEnsName(ensName);
+        // setAvatarUrl(avatarUrl);
         return;
       }
-
-
-/*      function signOutOfMetaMask() {
-        window.userWalletAddress = null
-        userWallet.innerText = '';
-        loginTitle.innerText = 'Log in using MetaMask'
-      }
-      */
 
 
     //
@@ -108,7 +155,7 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
             // console.log('render name', {address, ensName, avatarUrl});
         }
       //  setEnsName("Jesus");
-        setAvatarUrl("https://gravatar.com/avatar/049f667ec6edd7b39789d68b2f540ae5?s=400&d=robohash&r=x"); 
+      //  setAvatarUrl("https://gravatar.com/avatar/049f667ec6edd7b39789d68b2f540ae5?s=400&d=robohash&r=x"); 
 //alert("antes de setAddress");
         setAddress(address);
     
@@ -308,7 +355,7 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                 >
                     <div
                         className={styles.userBar}
-                        onClick={openUserPanel}
+                        
                     >
                         {avatarUrl ? (
                             <div
@@ -321,6 +368,7 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                             className={styles.address}
                         >{ensName || address || ''} <img className={styles.verifiedIcon} src="./images/verified.svg" /></div>
                     </div>
+                    
                     <div className={styles.logoutBtn}
                         onClick={e => {
                             e.preventDefault();
@@ -344,19 +392,27 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                     <span className={ styles.methodBtnText } >MetaMask</span>
                 </div>
                 <p id='userWallet' className={styles.addressValue}></p>
-          {/*   <a
-                    href={ `https://discord.com/api/oauth2/authorize?client_id=${ discordClientId }&redirect_uri=${ window.location.origin }%2Flogin&response_type=code&scope=identify` }
-                    onMouseEnter={ _triggerClickSound }
-                >
-                    <div className={ styles.methodBtn } >
-                        <img src="images/discord.png" alt="discord" width="28px" />
-                        <span className={ styles.methodBtnText } >Discord</span>
-                    </div>
-                </a>*/}
                 <div className={ styles.methodBtn } onClick={ handleCancelBtnClick } onMouseEnter={ _triggerClickSound } >
                     <span className={ styles.methodBtnText } >Close</span>
                 </div>
             </div>
+
+
+            {/*   <div className={ classnames(
+                styles.userDataMethodsModal,
+                open ? styles.opened : null,
+            ) } >
+                <div className={ styles.title } >
+                    <span id='playerData'>Player Data</span>
+                </div>
+                <div className={ styles.methodBtn } id='metalogin' onClick={ metaMaskLogin } onMouseEnter={ _triggerClickSound } >
+                    <img src="images/metamask.png" alt="metamask" width="28px" />
+                </div>
+                <div className={ styles.methodBtn } onClick={ handleCancelBtnClick } onMouseEnter={ _triggerClickSound } >
+                    <span className={ styles.methodBtnText } >Close</span>
+                </div>
+            </div>*/}
+
 
             {/* <Modal onClose={ showModal } show={open && !loggingIn}>
                 <div className={styles.login_options}>

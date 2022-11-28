@@ -24,8 +24,7 @@ function unregisterIoEventHandler ( type, fn ) {
 
     const hs = ioEventHandlers[ type ];
     const index = hs.indexOf( fn );
-
-    if ( index !== -1 ) {
+if ( index !== -1 ) {
 
         hs.splice( index, 1 );
 

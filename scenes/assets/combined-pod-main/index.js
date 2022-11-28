@@ -179,6 +179,7 @@ export default e => {
 var initialPoint = true;
 var firstTime = true;
 const loreAIScene = useLoreAIScene();
+var firstTimeChat = true;
 
     useFrame(() => {
 
@@ -192,8 +193,24 @@ const loreAIScene = useLoreAIScene();
        /* chatODA.addEventListener('click', function handleClick() {
           alert('hago click');
         })*/
+ 
+        if (firstTime)
+        {
+        const collection = document.getElementsByClassName("oda-chat-button oda-chat-flex");
+        let numb = document.getElementsByClassName("oda-chat-button oda-chat-flex").length;
+     
+          collection[0].addEventListener('click', (e) => {
+            console.log(`Button is clicked!`);
+            e.preventDefault();
+            e.stopPropagation();    
+        });
 
+      }else{
+        firstTime=false;
+      }
+      
 
+//console.log(useLocalPlayer);
         if (initialPoint)
         if (localPlayer.position.x>40 && localPlayer.position.x<41)
           {
