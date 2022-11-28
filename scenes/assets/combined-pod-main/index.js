@@ -187,6 +187,13 @@ const loreAIScene = useLoreAIScene();
       //  console.log("x: "+localPlayer.position.x);
         //console.log("y: "+localPlayer.position.y);
         //console.log("z: "+localPlayer.position.z);
+    //   const chatODA = document.getElementsByClassName('button.oda-chat-button.oda-chat-flex');
+    //  console.log(JSON.stringify(chatODA));
+       /* chatODA.addEventListener('click', function handleClick() {
+          alert('hago click');
+        })*/
+
+
         if (initialPoint)
         if (localPlayer.position.x>40 && localPlayer.position.x<41)
           {

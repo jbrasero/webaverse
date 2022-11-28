@@ -14,6 +14,7 @@ import styles from './User.module.css';
 
 import * as sounds from '../sounds.js';
 
+//import * as metamask from '../metamask/script.js';
 //
 
 export const User = ({ className, address, setAddress, setLoginFrom }) => {
@@ -24,8 +25,40 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
     const [ loggingIn, setLoggingIn ] = useState(false);
     const [ loginError, setLoginError ] = useState(null);
     const [ autoLoginRequestMade, setAutoLoginRequestMade ] = useState(false);
+    
+    const userWallet = document.getElementById('userWallet')
+    window.userWalletAddress = null;
+    const loginTitle = document.getElementById('loginTitle');
+    const metalogin = document.getElementById('metalogin')
+
+
+    async function loginWithMetaMask() {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+          .catch((e) => {
+            console.error(e.message)
+            return
+          })
+        if (!accounts) { return }
+        window.userWalletAddress = accounts[0];
+        address= accounts[0];
+      //  userWallet.innerText = window.userWalletAddress;
+        await _setAddress(address);
+        setAddress(address);
+        return;
+      }
+
+
+/*      function signOutOfMetaMask() {
+        window.userWalletAddress = null
+        userWallet.innerText = '';
+        loginTitle.innerText = 'Log in using MetaMask'
+      }
+      */
+
 
     //
+
+
 
     /* const showModal = ( event ) => {
 
@@ -58,11 +91,13 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                 const ensName = await blockchainManager.getEnsName(address);
                 // if (!live) return;
                 setEnsName(ensName);
+             //   alert(ensName);
 
                 if ( ensName ) {
                     const avatarUrl = await blockchainManager.getAvatarUrl(ensName);
                     // if (!live) return;
                     setAvatarUrl(avatarUrl);
+               //     alert(avatarUrl);
                 }
             // })();
 
@@ -72,7 +107,9 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
 
             // console.log('render name', {address, ensName, avatarUrl});
         }
-
+      //  setEnsName("Jesus");
+        setAvatarUrl("https://gravatar.com/avatar/049f667ec6edd7b39789d68b2f540ae5?s=400&d=robohash&r=x"); 
+//alert("antes de setAddress");
         setAddress(address);
     
     };
@@ -82,24 +119,30 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
         event.preventDefault();
         event.stopPropagation();
 
-        /* if ( address ) {
+         if ( address ) {
 
             setState({ openedPanel: ( state.openedPanel === 'UserPanel' ? null : 'UserPanel' ) });
 
-        } else { */
+        } else { 
 
             if ( ! loggingIn ) {
-
+                const ll =  !!address;
+              //  alert(!!address);
+              //  alert("antes LoggingIn "+ll);
                 setLoggingIn( true );
-
+              //  alert("despues LoggingIn "+ll);
                 try {
 
-                    const { address, profile } = await ceramicApi.login();
-                    await _setAddress(address);
-                    setLoginFrom('metamask');
+                   // const { address, profile } = await ceramicApi.login();
+                   // await _setAddress(address);
+                  //  setLoginFrom('metamask');
                     // setShow(false);
-                    // setLoginFrom('metamask');
-
+               //     alert('empieza');
+                    await loginWithMetaMask();  
+//profile="Jesus";
+               /*     await _setAddress(address);
+                    setAddress(address);*/
+                   // setShow(false);
                 } catch (err) {
 
                     console.warn(err);
@@ -114,7 +157,7 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
 
             }
 
-        // }
+         }
 
     };
 
@@ -253,7 +296,7 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                         </div>
                         <div className={styles.blade}>
                             <div className={styles.background} />
-                            <div className={styles.text}>ログイン Log in</div>
+                            <div className={styles.text}>Log in</div>
                         </div>
                     </div>
                 </div>
@@ -293,14 +336,15 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                 open ? styles.opened : null,
             ) } >
                 <div className={ styles.title } >
-                    <span>Log in</span>
+                    <span id='loginTitle'>Log in</span>
                     {/* <div className={ styles.background } /> */}
                 </div>
-                <div className={ styles.methodBtn } onClick={ metaMaskLogin } onMouseEnter={ _triggerClickSound } >
+                <div className={ styles.methodBtn } id='metalogin' onClick={ metaMaskLogin } onMouseEnter={ _triggerClickSound } >
                     <img src="images/metamask.png" alt="metamask" width="28px" />
                     <span className={ styles.methodBtnText } >MetaMask</span>
                 </div>
-                <a
+                <p id='userWallet' className={styles.addressValue}></p>
+          {/*   <a
                     href={ `https://discord.com/api/oauth2/authorize?client_id=${ discordClientId }&redirect_uri=${ window.location.origin }%2Flogin&response_type=code&scope=identify` }
                     onMouseEnter={ _triggerClickSound }
                 >
@@ -308,9 +352,9 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                         <img src="images/discord.png" alt="discord" width="28px" />
                         <span className={ styles.methodBtnText } >Discord</span>
                     </div>
-                </a>
+                </a>*/}
                 <div className={ styles.methodBtn } onClick={ handleCancelBtnClick } onMouseEnter={ _triggerClickSound } >
-                    <span className={ styles.methodBtnText } >Cancel</span>
+                    <span className={ styles.methodBtnText } >Close</span>
                 </div>
             </div>
 
