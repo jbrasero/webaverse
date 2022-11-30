@@ -65,11 +65,11 @@ let _inappPreviewHost = '';
 //case 'https://webaverse.wedoteam.io': {
 
 switch ( origin ) {
-    case 'https://local.webaverse.com': {
+  //  case 'https://local.webaverse.com': {
     //    _inappPreviewHost = `https://webaverse.wedoteam.online:${globalThis.location.port}`;
-        _inappPreviewHost = `https://local.webaverse.online:${globalThis.location.port}`;
-        break;
-    }
+   //     _inappPreviewHost = `https://local.webaverse.online:${globalThis.location.port}`;
+   //     break;
+  //  }
     case 'https://wedoverse.wedoteam.io': {
         _inappPreviewHost = `https://wedoverse.wedoteam.online:${globalThis.location.port}`;
     //    _inappPreviewHost = `https://local.webaverse.online:${globalThis.location.port}`;
