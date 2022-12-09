@@ -1064,6 +1064,9 @@ export const handleUpload = async (item, { onProgress = null } = {}) => {
   console.log('upload complete:', u);
   //ADDED JBRASERO
   //alert('upload complete: '+ u);
+
+
+  
   return u;
 };
 

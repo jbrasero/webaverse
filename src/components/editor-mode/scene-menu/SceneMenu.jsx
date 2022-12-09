@@ -101,7 +101,7 @@ export const SceneMenu = ({ className, multiplayerConnected, selectedScene, setS
         const data = null; // Z.encodeStateAsUpdate( world.getState( true ) );
         const roomName = makeId(5);
       /*  alert(roomName);*/
-        alert(universe.getWorldsHost()+roomName);
+       // alert(universe.getWorldsHost()+roomName);
       /*  alert(data);*/
         const res = await fetch(universe.getWorldsHost() + roomName, {
           method: 'POST',

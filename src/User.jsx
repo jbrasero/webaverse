@@ -66,7 +66,7 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
         var internalID= setInterval(() => {
             console.log('pasaron 5 segundos');
           
-            fetch('https://wedooic-wedoinfra.integration.ocp.oraclecloud.com/ic/builder/rt/MetaverseLauncher/live/resources/data/Wallet?q=address=%270x2a02738663cdc66501e7a98f23656015dd7503e2%27')
+            fetch(encodeURI("https://wedooic-wedoinfra.integration.ocp.oraclecloud.com/ic/builder/rt/MetaverseLauncher/live/resources/data/Wallet?q=address='"+address+"'"))
                 .then((response) => response.json())
                 .then(data => {
                   //  console.log(data); 
@@ -77,7 +77,6 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                     var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + '?name='+data.items[0].name;    
                     window.history.pushState({ path: refresh }, '', refresh);
                     defaultPlayerName = data.items[0].name;
-                    
                 
                 /*    const collection = document.getElementsByClassName("_name_69xqm_94");
                     let numb = document.getElementsByClassName("_name_69xqm_94").length;
@@ -89,8 +88,12 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                     console.log("segundo "+collection.innerText);
                     var sceneName="./scenes/health.scn";
                     universe.pushUrl( `/?src=${ encodeURIComponent( sceneName ) }&name=${defaultPlayerName}` );*/
+                    //ADDING call to blockchain to create folder on customer visit 
+                    createPatientFolder(address);
 
-                    clearInterval(internalID);
+
+
+                    clearInterval(internalID,data.items[0].name);
                   //  location.reload();
                     return;
                 });
@@ -103,7 +106,28 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
       }
 
 
-    //
+
+      
+//----------
+ 
+      function createPatientFolder(address,name) {
+          var url = "https://wedobcstd-wedoinfra-fra.blockchain.ocp.oraclecloud.com:7443/restproxy/api/v2/channels/metaverse/transactions";
+       //   var data = { "name": x };
+       var data = { "chaincode": "HCPatientExpedient", "args": [ "createMedExpNFTToken", "{\"tokenId\":\""+address+"\",\"tokenDesc\":\"Patient-Expedient-"+address+"\",\"tokenUri\":\"Patient-Expedient-"+address+"\",\"metadata\":{\"patientID\":\""+address+"\",\"patientName\":\""+name+"\",\"patientPhone\":\"+34628412193\",\"patientEmsil\":\"jvillenap@gmail.com\"}, \"documents\":[], \"medicalVisits\":[]}"],"timeout": 60000,"sync": true }
+          fetch(url, {
+              method: 'POST', // or 'PUT'
+              body: JSON.stringify(data), // data can be `string` or {object}!
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': 'Basic bWV0YXZlcnNlX2RvY3RvcjE6V0VET1ZlcnNlMTIzIy4='
+              }
+          }).then(res => res.json())
+              .catch(error => console.error('Error:', error))
+              .then(response => {console.log('Success:', response);});
+      }
+
+
+//-------------
 
 
 
