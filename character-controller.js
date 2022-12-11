@@ -1353,7 +1353,7 @@ class RemotePlayer extends InterpolatedPlayer {
 
       if (e.changes.keys.get('name')) {
         this.name = e.changes.keys.get('name').value;
-        alert("this.name "+this.name);
+       // alert("this.name "+this.name);
       }
 
       if (e.changes.keys.has('transform')) {

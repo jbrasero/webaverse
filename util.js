@@ -22,6 +22,9 @@ const localVector6 = new THREE.Vector3();
 const localMatrix = new THREE.Matrix4();
 const localMatrix2 = new THREE.Matrix4();
 
+var fileType="";
+var fileName="";
+
 export function jsonParse(s, d = null) {
   try {
     return JSON.parse(s);
@@ -945,6 +948,8 @@ export const handleDropJsonItem = async (item) => {
 };
 export const handleUpload = async (item, { onProgress = null } = {}) => {
   console.log('uploading...', item);
+  //console.log('uploading...', item.type);
+  fileType=item.type;
 
   const _handleFileList = async (item) => {
     const formData = new FormData();
@@ -960,7 +965,9 @@ export const handleUpload = async (item, { onProgress = null } = {}) => {
     const files = item;
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-     // alert("uploading "+file.name);
+     console.log("uploading file "+file.name);
+     fileName = file.name;
+    
       formData.append(file.name, file, file.name);
     }
 
@@ -1062,13 +1069,140 @@ export const handleUpload = async (item, { onProgress = null } = {}) => {
   };
   const u = await _uploadObject(item);
   console.log('upload complete:', u);
+ 
+
   //ADDED JBRASERO
-  //alert('upload complete: '+ u);
+ 
+
+  const queryString = window.location.search;
+  
+  if(queryString) 
+  {
+    const urlParams = new URLSearchParams(queryString);
+    const recordValue = urlParams.get('record');
+    console.log(recordValue);
+    const visitValue = urlParams.get('visit');
+    console.log(visitValue);
+    const address = urlParams.get('address');
+    console.log(address);
+    if (address==null)
+    {
+      var overlay1 = document.createElement( 'div' );
+      overlay1.id = "loginfirst"
+      overlay1.style.cursor = 'pointer';
+      overlay1.style.left = 'calc(50% - 150px)';
+      overlay1.style.width = '750px';
+      overlay1.style.position = 'absolute';
+      overlay1.style.bottom = '300px';
+      overlay1.style.padding = '12px 6px';
+      overlay1.style.border = '1px solid #fff';
+      overlay1.style.borderRadius = '4px';
+      overlay1.style.background = 'rgba(100,100,100,0.5)';
+      overlay1.style.color = '#fff';
+      overlay1.style.font = 'normal 14px sans-serif';
+      overlay1.style.textAlign = 'center';
+      overlay1.style.opacity = '1';
+      overlay1.style.outline = 'none';
+      overlay1.style.zIndex = '999';
+      overlay1.style.display = 'block';
+      overlay1.innerHTML = "Please, you must login first to create your medical record";
+      document.body.appendChild( overlay1 );
+      setTimeout(() => {
+          const box = document.getElementById('loginfirst');
+          box.style.display = 'none';
+      }, 6000); 
+    }else{
+      var hashValue="7bf17c838db90434ce597399f506ec122808b99d082bd3eab47c82624bb2f99f";
+      uploadFileBlockchain(recordValue,fileType,fileName,visitValue,hashValue)
+    }
+  }
 
 
   
   return u;
 };
+
+//----------------
+
+
+//-----
+ 
+function uploadFileBlockchain(recordvalue,filetype,filename,visitvalue,hashvalue) {
+  let randomString = Math.random().toString(36).substr(2, 6);
+  console.log(hashvalue);
+
+  var url = "https://wedobcstd-wedoinfra-fra.blockchain.ocp.oraclecloud.com:7443/restproxy/api/v2/channels/metaverse/transactions";
+  var data =  { "chaincode": "HCPatientExpedient", "args": [ "attachDocument",  recordvalue, "X-Ray "+randomString,  filename, filetype, hashvalue,  "Laboratory Analysis", visitvalue,  "[\"AnalysisDate\",\"Provider\"]","[\"2022/11/25\",\"AcmeLabs1\"]"], "timeout": 60000, "sync": true }
+ 
+  fetch(url, {
+      method: 'POST', 
+      body: JSON.stringify(data), 
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Basic bWV0YXZlcnNlX2RvY3RvcjE6V0VET1ZlcnNlMTIzIy4='
+      }
+  }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(response => {
+        console.log('Success Upload to Blockchain:', response);
+        if (response.returnCode=="Success")
+        {
+            var payload1 = response.result.payload;
+            var txid1 = response.result.txid;
+            var overlay1 = document.createElement( 'div' );
+            overlay1.id = "uploadFile"
+            overlay1.style.cursor = 'pointer';
+            overlay1.style.left = 'calc(50% - 150px)';
+            overlay1.style.width = '750px';
+            overlay1.style.position = 'absolute';
+            overlay1.style.bottom = '300px';
+            overlay1.style.padding = '12px 6px';
+            overlay1.style.border = '1px solid #fff';
+            overlay1.style.borderRadius = '4px';
+            overlay1.style.background = 'rgba(100,100,100,0.5)';
+            overlay1.style.color = '#fff';
+            overlay1.style.font = 'normal 14px sans-serif';
+            overlay1.style.textAlign = 'center';
+            overlay1.style.opacity = '1';
+            overlay1.style.outline = 'none';
+            overlay1.style.zIndex = '999';
+            overlay1.style.display = 'block';
+            overlay1.innerHTML = payload1+"<br>"+"TxID: "+txid1;
+            document.body.appendChild( overlay1 );
+            setTimeout(() => {
+                const box = document.getElementById('uploadFile');
+                box.style.display = 'none';
+            }, 6000);
+        }else{
+          var overlay1 = document.createElement( 'div' );
+          overlay1.id = "uploadFile"
+          overlay1.style.cursor = 'pointer';
+          overlay1.style.left = 'calc(50% - 150px)';
+          overlay1.style.width = '750px';
+          overlay1.style.position = 'absolute';
+          overlay1.style.bottom = '300px';
+          overlay1.style.padding = '12px 6px';
+          overlay1.style.border = '1px solid #fff';
+          overlay1.style.borderRadius = '4px';
+          overlay1.style.background = 'rgba(100,100,100,0.5)';
+          overlay1.style.color = '#fff';
+          overlay1.style.font = 'normal 14px sans-serif';
+          overlay1.style.textAlign = 'center';
+          overlay1.style.opacity = '1';
+          overlay1.style.outline = 'none';
+          overlay1.style.zIndex = '999';
+          overlay1.style.display = 'block';
+          overlay1.innerHTML = response.error;
+          document.body.appendChild( overlay1 );
+          setTimeout(() => {
+              const box = document.getElementById('uploadFile');
+              box.style.display = 'none';
+          }, 6000);
+        }
+      }
+      );
+}
+//---------------------
 
 export const loadImage = (u) =>
   new Promise((resolve, reject) => {

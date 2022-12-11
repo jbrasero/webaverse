@@ -33,7 +33,7 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
     window.userWalletAddress = null;
     const loginTitle = document.getElementById('loginTitle');
     const metalogin = document.getElementById('metalogin')
-
+    var expedients=[];
 
     async function loginWithMetaMask() {
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
@@ -89,8 +89,7 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
                     var sceneName="./scenes/health.scn";
                     universe.pushUrl( `/?src=${ encodeURIComponent( sceneName ) }&name=${defaultPlayerName}` );*/
                     //ADDING call to blockchain to create folder on customer visit 
-                    createPatientFolder(address);
-
+                     getExpedients(address,defaultPlayerName);
 
 
                     clearInterval(internalID,data.items[0].name);
@@ -112,10 +111,11 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
  
       function createPatientFolder(address,name) {
           var url = "https://wedobcstd-wedoinfra-fra.blockchain.ocp.oraclecloud.com:7443/restproxy/api/v2/channels/metaverse/transactions";
-       //   var data = { "name": x };
-       var data = { "chaincode": "HCPatientExpedient", "args": [ "createMedExpNFTToken", "{\"tokenId\":\""+address+"\",\"tokenDesc\":\"Patient-Expedient-"+address+"\",\"tokenUri\":\"Patient-Expedient-"+address+"\",\"metadata\":{\"patientID\":\""+address+"\",\"patientName\":\""+name+"\",\"patientPhone\":\"+34628412193\",\"patientEmsil\":\"jvillenap@gmail.com\"}, \"documents\":[], \"medicalVisits\":[]}"],"timeout": 60000,"sync": true }
+          let randomString = Math.random().toString(36).substr(2, 10);
+          console.log("randomString: "+randomString);
+          var data =   { "chaincode": "HCPatientExpedient", "args": [ "createMedExpNFTTokenWithWallet", "{\"tokenId\":\""+randomString+"\",\"tokenDesc\":\"Patient-Expedient-"+randomString+"\",\"tokenUri\":\"Patient-Expedient-"+randomString+"\",\"metadata\":{\"patientID\":\"33444555M\",\"patientName\":\""+name+"\",\"patientGender\":\"Male\",\"patientBirth\":\"1978-10-01\"},\"patientPhone\":\"+34666555444\",\"patientEmail\":\"jesus.brasero@oracle.com\",\"walletType\":\"METAMASK\",\"walletID\":\""+address+"\", \"documents\":[], \"medicalVisits\":[]}"],"timeout": 60000, "sync": true }
           fetch(url, {
-              method: 'POST', // or 'PUT'
+              method: 'POST', 
               body: JSON.stringify(data), // data can be `string` or {object}!
               headers: {
                   'Content-Type': 'application/json',
@@ -128,7 +128,104 @@ export const User = ({ className, address, setAddress, setLoginFrom }) => {
 
 
 //-------------
+//----------
+ 
+function getExpedients(address,defaultPlayerName) {
+    var url = "https://wedobcstd-wedoinfra-fra.blockchain.ocp.oraclecloud.com:7443/restproxy/api/v2/channels/metaverse/transactions";
+    var data =  { "chaincode": "HCPatientExpedient", "args": [ "getExternalWalletById", address ],"timeout": 6000, "sync": true}
+    fetch(url, {
+        method: 'POST', 
+        body: JSON.stringify(data), 
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic bWV0YXZlcnNlX2RvY3RvcjE6V0VET1ZlcnNlMTIzIy4='
+        }
+    }).then(res => res.json())
+        .catch(error => {
+                console.error('Error:', error); 
+            })
+        .then(response => {
+            console.log('Success response:', response);
+            if (response.returnCode=="Success"){
+                var nexps = response.result.payload.MedExpNFTIDs.length;
+                console.log("nexps: "+nexps);
+                var expID = response.result.payload.MedExpNFTIDs;
+                console.log("expIDs: "+expID);
+                expedients =expID[nexps-1];
+                console.log("expedients "+expedients);
+                AddVisit(expedients);
+            }else if (response.returnCode=="Failure"){
+                //doesn't exits wallet
+                createPatientFolder(address,defaultPlayerName);
+            }
 
+        });
+}
+
+
+//-------------
+
+
+function AddVisit(expedient) {
+    var url = "https://wedobcstd-wedoinfra-fra.blockchain.ocp.oraclecloud.com:7443/restproxy/api/v2/channels/metaverse/transactions";
+    let randomString = Math.random().toString(36).substr(2, 8);
+  //  console.log("randomString: "+randomString);
+    var todayDate = new Date().toISOString().slice(0, 10);
+  //  console.log(todayDate);
+    var data =   { "chaincode": "HCPatientExpedient", "args": [  "addMedicalVisit", expedient,  "VI-"+expedient+"-"+randomString,  "Dr. Luis Gonzalez",  todayDate,  "Cardiology",   "Patient Transferred from GP"   ],  "timeout": 60000, "sync": true }
+ 
+        const url2 = new URL(window.location.href);
+        url2.searchParams.set('record', expedient);
+        url2.searchParams.set('visit', "VI-"+expedient+"-"+randomString);
+        url2.searchParams.set('address', address);
+        window.history.replaceState(null, null, url2);
+
+    fetch(url, {
+        method: 'POST', 
+        body: JSON.stringify(data), // data can be `string` or {object}!
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic bWV0YXZlcnNlX2RvY3RvcjE6V0VET1ZlcnNlMTIzIy4='
+        }
+    }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => {
+            console.log('Success:', response);
+            if (response.returnCode=="Success")
+            {
+                var resultado=response.result.payload;
+                var txid = response.result.txid;
+                var overlay1 = document.createElement( 'div' );
+                overlay1.id = "patientVisit"
+                overlay1.style.cursor = 'pointer';
+                overlay1.style.left = 'calc(50% - 150px)';
+                overlay1.style.width = '750px';
+                overlay1.style.position = 'absolute';
+                overlay1.style.bottom = '300px';
+                overlay1.style.padding = '12px 6px';
+                overlay1.style.border = '1px solid #fff';
+                overlay1.style.borderRadius = '4px';
+                overlay1.style.background = 'rgba(100,100,100,0.5)';
+                overlay1.style.color = '#fff';
+                overlay1.style.font = 'normal 14px sans-serif';
+                overlay1.style.textAlign = 'center';
+                overlay1.style.opacity = '1';
+                overlay1.style.outline = 'none';
+                overlay1.style.zIndex = '999';
+                overlay1.style.display = 'block';
+                overlay1.innerHTML = "Creating "+resultado+"<br>"+"TxID: "+txid;
+                document.body.appendChild( overlay1 );
+                setTimeout(() => {
+                    const box = document.getElementById('patientVisit');
+                    box.style.display = 'none';
+                }, 8000);
+            }
+        });
+
+}
+
+//----------
+ 
 
 
     /* const showModal = ( event ) => {

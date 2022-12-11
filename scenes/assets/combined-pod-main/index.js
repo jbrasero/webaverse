@@ -193,7 +193,7 @@ var firstTimeChat = true;
        /* chatODA.addEventListener('click', function handleClick() {
           alert('hago click');
         })*/
- 
+ /*
         if (firstTime)
         {
         const collection = document.getElementsByClassName("oda-chat-button oda-chat-flex");
@@ -255,7 +255,7 @@ var firstTimeChat = true;
                   //  console.log("dentro");
                     /*chatManager.addMessage("Thank you very much for making time in your schedule.", {
                       timeout: 4000,
-                    });*/
+                    });
 
 
                       var overlay = document.createElement( 'div' );
@@ -329,7 +329,7 @@ var firstTimeChat = true;
                  box1.style.display = 'none';
                }, 12000);
 
-
+*/
                 /*     setTimeout(() => {
                       overlay1.style.display = 'none';
                       overlay.style.display = 'block';
@@ -378,10 +378,10 @@ var firstTimeChat = true;
   button.style.opacity = '0.5';
   button.style.outline = 'none';
   button.style.zIndex = '999';
-document.body.appendChild( button );*/
+document.body.appendChild( button );
 
 
-
+*/
 
 
               //      console.log("playerId: "+localPlayer.playerId);
@@ -434,7 +434,7 @@ document.body.appendChild( button );*/
                       playerName: npcName,
                       message,
                     };
-                    chatManager.addPlayerMessage(newNpcPlayer, message2);*/
+                    chatManager.addPlayerMessage(newNpcPlayer, message2);
                   }
               }
           }else{
@@ -446,7 +446,7 @@ document.body.appendChild( button );*/
                     console.log("se sale");
                   }
               }
-          }
+          }*/
     });
 
     useCleanup(() => {
