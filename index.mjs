@@ -84,7 +84,7 @@ function makeId(length) {
     var user = auth[0];
     var pass = auth[1];
  
-    if (user == 'admin' && pass == 'password') {
+    if (user == 'admin' && pass == 'Oc4j1013-') {
  
         // If Authorized user
         next();
